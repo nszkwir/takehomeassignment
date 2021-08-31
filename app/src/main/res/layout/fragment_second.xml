@@ -4,24 +4,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondFragment">
+    android:padding="20dp"
+    tools:context=".ui.SecondFragment">
 
-    <TextView
-        android:id="@+id/textview_second"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:id="@+id/weatherCard"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
+        android:background="@drawable/weather_border"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/button_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/previous"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/weatherTitle"
+            style="@style/WeatherTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weather"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iconToday"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/iconTomorrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weatherTitle"
+            tools:srcCompat="@drawable/ic_weather_fog" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iconTomorrow"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iconToday"
+            tools:srcCompat="@drawable/ic_weather_fog" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iconDayAfterTomorrow"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iconTomorrow"
+            app:layout_constraintTop_toTopOf="@+id/iconToday"
+            tools:srcCompat="@drawable/ic_weather_fog" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/temperatureToday"
+            style="@style/WeatherTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/iconToday"
+            app:layout_constraintStart_toStartOf="@+id/iconToday"
+            app:layout_constraintTop_toBottomOf="@+id/iconToday"
+            tools:text="23-25 C" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/temperatureTomorrow"
+            style="@style/WeatherTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/iconTomorrow"
+            app:layout_constraintStart_toStartOf="@+id/iconTomorrow"
+            app:layout_constraintTop_toBottomOf="@+id/iconTomorrow"
+            tools:text="23-25 C" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/temperatureDayAfterTomorrow"
+            style="@style/WeatherTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/iconDayAfterTomorrow"
+            app:layout_constraintStart_toStartOf="@+id/iconDayAfterTomorrow"
+            app:layout_constraintTop_toBottomOf="@+id/iconDayAfterTomorrow"
+            tools:text="23-25 C" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resumeToday"
+            style="@style/WeatherResume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/temperatureToday"
+            app:layout_constraintStart_toStartOf="@+id/temperatureToday"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureToday"
+            tools:text="rain today" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resumeTomorrow"
+            style="@style/WeatherResume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/temperatureTomorrow"
+            app:layout_constraintStart_toStartOf="@+id/temperatureTomorrow"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureTomorrow"
+            tools:text="afternoon storms" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resumeDayAfterTomorrow"
+            style="@style/WeatherResume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/temperatureDayAfterTomorrow"
+            app:layout_constraintStart_toStartOf="@+id/temperatureDayAfterTomorrow"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureDayAfterTomorrow"
+            tools:text="some fogs" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

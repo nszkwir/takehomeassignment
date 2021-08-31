@@ -4,9 +4,13 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
+    <string name="first_fragment_go">GO!</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_first_fragment">Click to check local weather for the next three days!</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="snackbar_could_not_fetch">Could not fetch data. Please retry.</string>
+    <string name="snackbar_network_error">A network error occurred. Please retry.</string>
+    <string name="snackbar_error">An error occurred. Please retry.</string>
 </resources>
